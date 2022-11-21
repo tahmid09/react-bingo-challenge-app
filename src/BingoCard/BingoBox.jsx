@@ -47,7 +47,7 @@ function range(from, end) {
 }
 
 
-const lotteryRange = range(1, 75);
+let lotteryRange = range(1, 75);
 
 const lottery = () => {
     const idx = random(0, lotteryRange.length); //parseInt((Math.random() * lotteryRange.length).toString(), 10);
@@ -69,6 +69,7 @@ export const BingoBox = ({ getValue, getBingo, reset,
    },[reset]);
 
    const resetAndNewGame = () => {
+    lotteryRange = range(1, 75);
     setCardData(createCardData())
    }
 

@@ -2,7 +2,7 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim"; // loads tsparticles-slim
 //import { loadFull } from "tsparticles"; // loads tsparticles
 import { useCallback, useMemo } from "react";
-const ParticleComponent = (props) => {
+export const ParticleComponent = (props) => {
     // using useMemo is not mandatory, but it's recommended since this value can be memoized if static
     const options = useMemo(() => {
       // using an empty options object will load the default options, which are static particles with no background and 3px radius, opacity 100%, white color
@@ -13,7 +13,7 @@ const ParticleComponent = (props) => {
         // },
         fullScreen: {
           enable: true, // enabling this will make the canvas fill the entire screen, it's enabled by default
-          zIndex: -1, // this is the z-index value used when the fullScreen is enabled, it's 0 by default
+          zIndex: 999, // this is the z-index value used when the fullScreen is enabled, it's 0 by default
         },
         interactivity: {
           events: {
@@ -41,15 +41,25 @@ const ParticleComponent = (props) => {
         retina_detect: true,
         particles: {
             number: {
-                value: 250,
-                density: {
-                  enable: true,
-                  value_area: 1803.4120608655228
-                }
-              },
-              color: {
-                value: ["#00FFFC", "#FC00FF", "#fffc00"]
-              },
+            value: 50,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: [ "#FC00FF",  "#FF0000", "#FF8C00", "#FFC000"]
+          },
+            // number: {
+            //     value: 550,
+            //     density: {
+            //       enable: true,
+            //       value_area: 1803.4120608655228
+            //     }
+            //   },
+            //   color: {
+            //     value: ["#00FFFC", "#FC00FF", "#fffc00", "#FF0000", "#FF8C00", "amber"]
+            //   },
               shape: {
                 type: "square",
                 // stroke: {
@@ -62,22 +72,22 @@ const ParticleComponent = (props) => {
                
               },
               opacity: {
-                value: 0.4008530152163807,
+                value: 0.9,
                 random: false,
                 anim: {
                   enable: false,
-                  speed: 1,
+                  speed: 7,
                   opacity_min: 0.1,
                   sync: false
                 }
               },
               size: {
-                value: 6,
+                value: 8,
                 random: true,
                 anim: {
                   enable: false,
-                  speed: 40,
-                  size_min: 0.1,
+                  speed: 50,
+                  size_min: 0.4,
                   sync: false
                 }
               },
@@ -85,8 +95,8 @@ const ParticleComponent = (props) => {
                 enable: true,
                 distance: 0,
                 color: "#ffffff",
-                opacity: 0.3687847739990702,
-                width: 0.6413648243462091
+                opacity: 0.3,
+                width: 0.6
               },
         //   links: {
         //     enable: true, // enabling this will make particles linked together
@@ -94,7 +104,7 @@ const ParticleComponent = (props) => {
         //   },
           move: {
             enable: true, // enabling this will make particles move in the canvas
-            speed: { min: 1, max: 5 }, // using a range in speed value will make particles move in a random speed between min/max values, each particles have its own value, it won't change in time by default
+            speed: { min: 1, max: 7 }, // using a range in speed value will make particles move in a random speed between min/max values, each particles have its own value, it won't change in time by default
             direction: "top",
             out_mode: "out"  
         },
@@ -118,5 +128,5 @@ const ParticleComponent = (props) => {
     return <Particles id={props.id} init={particlesInit} options={options} />;
   };
   
-  export default ParticleComponent;
+  //export default ParticleComponent;
   

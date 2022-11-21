@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 
 import { BingoBox } from "./BingoCard/BingoBox";
 import { ShortCard } from "./BingoCard/ShortCard";
-import ParticleComponent from "./lib/ParticleComponent";
+import {ParticleComponent} from "./lib/ParticleComponent";
 
 import './App.css';
 
@@ -98,9 +98,6 @@ function App() {
                 <br />
         <Container>
             <Row>
-           {
-            console.log(showParticle, 'showParticle')
-           }
             { showParticle ?    <ParticleComponent />  : ''}
             </Row>
             <Row>
